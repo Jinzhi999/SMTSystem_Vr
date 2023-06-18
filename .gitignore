@@ -1,2 +1,17 @@
 
 Assets/GameAssets/Model/结构原理/场地/走廊电梯间模型(1)-fbx_爱给网_aigei_com/1667.fbx/file.fbx
+*.csproj
+.vsconfig
+Assets/3rdPart/SteamVr/SteamVR_Resources/Resources/SteamVR_Settings.asset
+Assets/3rdPart/SteamVr/SteamVR_Resources/Resources/SteamVR_Settings.asset.meta
+Assets/3rdPart/SteamVr/SteamVR_Resources/Resources/SteamVR_Settings.asset
+Assets/3rdPart/SteamVr/SteamVR_Resources/Resources/SteamVR_Settings.asset.meta
+Library
+Logs
+Packages
+ProjectSettings
+Temp
+UserSettings
+
+*.sln
+ProjectSettings/ProjectSettings.asset
