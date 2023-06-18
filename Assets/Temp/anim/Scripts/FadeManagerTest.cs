@@ -10,7 +10,7 @@ public class FadeManagerTest : MonoBehaviour
     public Material fadeMateril, gridMaterial;
     void Start()
     {
-        List<Renderer> renderList = transform.GetComponentsInChildren<Renderer>().ToList();
+        List<Renderer> renderList = transform.GetComponentsInChildren<Renderer>(true).ToList();
         foreach (var item in renderList)
         {
             renderDict.Add(item, item.materials);

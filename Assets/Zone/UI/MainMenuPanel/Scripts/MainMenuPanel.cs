@@ -14,7 +14,7 @@ public class MainMenuPanel : UIBase
         InitObject();
 
         结构原理.onClick.AddListener(() => {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Lesson_课程00");
+            UnityEngine.SceneManagement.SceneManager.LoadScene("01结构原理");
         });
         操作使用.onClick.AddListener(() => {
             UnityEngine.SceneManagement.SceneManager.LoadScene("Lesson_课程00");

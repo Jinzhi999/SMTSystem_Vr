@@ -10,18 +10,21 @@ public class MenuFunctionPanel : MonoBehaviour
 {
     public VRUIButon 退出;
     public VRUIButon 组成讲解, 装备拆卸, 装备装配,菜单;
-    public VRUIButon 归位1,归位2, 归位3, 零件库, 模型树,透视,网格化;
+    public VRUIButon 类型, 归位2, 归位3, 零件库, 模型树,透视,网格化;
     public VRUIButon 拆卸步骤, 拆卸动画, 拆卸动画减速,拆卸动画加速;
     public VRUIButon 装配步骤, 装配动画, 装配动画减速, 装配动画加速;
 
     public AnimManager animManager;
+    /// <summary>
+    /// 显示特效
+    /// </summary>
     public FadeManagerTest effectManager;
 
 
     public StepTablePanel stepTablePanel;           //步骤
     public SparePartsTreePanel sparePartsTreePanel; //零件
 
-
+    private string ddType ="15";
     // devie
 
     public DeviceTest deviceManager;
@@ -36,24 +39,41 @@ public class MenuFunctionPanel : MonoBehaviour
             animManager.BackAnimToTarPos();
             deviceManager.InitToInitPro();
         });
-        return;
-        //组成讲解.OnClickDn.AddListener(()=> {
-        //    animManager.BackAnimToInitPos();
-        //});
-        //装备拆卸.OnClickDn.AddListener(() => {
-        //    animManager.BackAnimToInitPos();
 
-        //    deviceManager.InitToTarPro();
-        //});
-        //装备装配.OnClickDn.AddListener(() => {
-        //    animManager.BackAnimToTarPos();
-        //    deviceManager.InitToInitPro();
-        //});
+        组成讲解.OnClickDn.AddListener(() =>
+        {
+            GameObject go = transform.Find("公共功能").gameObject;
+            go.SetActive(!go.activeInHierarchy);
+        });
+        装备拆卸.OnClickDn.AddListener(() =>
+        {
+            GameObject go = transform.Find("装备拆卸功能").gameObject;
+            go.SetActive(!go.activeInHierarchy);
+        });
+        装备装配.OnClickDn.AddListener(() =>
+        {
+            GameObject go = transform.Find("装备装配功能").gameObject;
+            go.SetActive(!go.activeInHierarchy);
+        });
+        菜单.OnClickDn.AddListener(() =>
+        {
+            GameObject go = transform.Find("菜单功能").gameObject;
+            go.SetActive(!go.activeInHierarchy);
+        });
 
         // 二级
-        归位1.OnClickDn.AddListener(() => {
-            animManager.BackAnimToInitPos();
-            deviceManager.HideAllHightLight();
+        类型.OnClickDn.AddListener(() => {
+            Text text = 类型.transform.GetComponentInChildren<Text>();
+            if (text.text.Contains("15"))
+            {
+                text.text = "型号：" + 17;
+                ddType = "17";
+            }
+            else
+            {
+                text.text = "型号：" + 15;
+                ddType = "15";
+            }
         });
         归位2.OnClickDn.AddListener(() => {
             animManager.BackAnimToInitPos();
@@ -170,7 +190,7 @@ public class MenuFunctionPanel : MonoBehaviour
                 if (btn.name.Equals(field.Name))
                 {
                     field.SetValue(this, btn);
-                    Debug.Log(btn.name);
+                    //Debug.Log(btn.name);
                     continue;
                 }
             }

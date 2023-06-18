@@ -27,7 +27,7 @@ namespace Valve.VR.Extras
 
         Transform previousContact = null;
 
-
+        
         private void Start()
         {
             if (pose == null)
@@ -93,9 +93,21 @@ namespace Valve.VR.Extras
                 PointerOut(this, e);
         }
 
+        bool use=true;
+        public void SetLinerActive()
+        {
+            use = !use;
+            pointer.gameObject.SetActive(use);
+        }
+             
+
         public RaycastHit hit;
         private void Update()
         {
+            if (!use)
+            {
+                return;
+            }
             if (!isActive)
             {
                 isActive = true;

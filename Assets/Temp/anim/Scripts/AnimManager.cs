@@ -67,10 +67,20 @@ public class AnimManager : MonoBehaviour
         }
         foreach (var item in animList)
         {
-            item.SetSpeed(0.5f);
+            if (curerentSpeed == 2f)
+            {
+                item.SetSpeed(1f);
+                curerentSpeed = 1;
+            }
+            else
+            {
+                curerentSpeed =0.5f;
+                item.SetSpeed(0.5f);
+            }
+    
         }
     }
-
+    float curerentSpeed = 1;
     public void AnimSpeedDown()
     {
         if (animList.Count == 0)
@@ -79,7 +89,16 @@ public class AnimManager : MonoBehaviour
         }
         foreach (var item in animList)
         {
-            item.SetSpeed(2f);
+            if (curerentSpeed == 0.5f)
+            {
+                item.SetSpeed(1f);
+                curerentSpeed = 1;
+            }
+            else
+            {
+                curerentSpeed = 2f;
+                item.SetSpeed(2f);
+            }
         }
     }
 
@@ -110,6 +129,11 @@ public class AnimManager : MonoBehaviour
         }
         else if (!isPositivesEquence)
         {
+            for (int i = 0; i < animList.Count; i++)
+            {
+                animList[i].Handle();
+            }
+            yield return 1;
             tempSort = count - 1;
             while (tempSort > -1)
             {
